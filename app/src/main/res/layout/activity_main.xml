@@ -15,4 +15,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.nitish.typewriterview.TypeWriterView
+        android:id="@+id/typeWriterView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="com.nitish.typewriterview.TypeWriterView"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="72dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

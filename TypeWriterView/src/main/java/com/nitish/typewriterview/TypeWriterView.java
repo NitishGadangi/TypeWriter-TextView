@@ -12,7 +12,7 @@ public class TypeWriterView extends AppCompatTextView {
     private long mDelay = 40; //Default delay in ms
     private Boolean isAnimationRunning = false;
     private OnAnimationChangeListener mAnimationChangeListener;
-    private Boolean avoidTextOverflowAtEdge = true;
+    private Boolean avoidTextOverflowAtEdge = false;
 
     public TypeWriterView(Context context) {
         super(context);
