@@ -1,5 +1,6 @@
-# TypeWriter
-Android Library to Get Smooth and Polished Typewriter Effect for TextView
+![Header](https://github.com/NitishGadangi/TypeWriter-TextView/blob/master/header.jpg?raw=true)
+
+## Demo
 
 <img height='450' style='border:0px;height:450px;' src='https://github.com/NitishGadangi/TypeWriter-TextView/blob/master/demo.gif?raw=true' border='0' alt='Demo' />
 
