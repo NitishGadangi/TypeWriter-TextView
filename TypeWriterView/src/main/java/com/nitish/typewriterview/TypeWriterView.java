@@ -3,6 +3,7 @@ package com.nitish.typewriterview;
 import android.content.Context;
 import android.os.Handler;
 import android.util.AttributeSet;
+import android.view.ViewTreeObserver;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
@@ -12,7 +13,8 @@ public class TypeWriterView extends AppCompatTextView {
     private long mDelay = 40; //Default delay in ms
     private Boolean isAnimationRunning = false;
     private OnAnimationChangeListener mAnimationChangeListener;
-    private Boolean avoidTextOverflowAtEdge = false;
+    private Boolean avoidTextOverflowAtEdge = true;
+    private ViewTreeObserver.OnGlobalLayoutListener globalLayoutListener;
 
     public TypeWriterView(Context context) {
         super(context);
@@ -32,13 +34,13 @@ public class TypeWriterView extends AppCompatTextView {
                 isAnimationRunning = true;
             }else {
                 isAnimationRunning = false;
-                if (mAnimationChangeListener != null) mAnimationChangeListener.onAnimationEnd();
+                pingAnimationEnded();
             }
         }
     };
 
     public void animateText(CharSequence text) {
-        mText = generateText(text.toString());
+        generateText(text.toString());
         mIndex = 0;
 
         setText("");
@@ -51,7 +53,7 @@ public class TypeWriterView extends AppCompatTextView {
             isAnimationRunning = false;
             mHandler.removeCallbacks(characterAdder);
             setText(mText);
-            if (mAnimationChangeListener != null) mAnimationChangeListener.onAnimationEnd();
+            pingAnimationEnded();
         }
     }
 
@@ -68,11 +70,18 @@ public class TypeWriterView extends AppCompatTextView {
         mDelay = millis;
     }
 
-    public String generateText(String mText){
+    private void generateText(final String inpText){
         if (avoidTextOverflowAtEdge){
-            return generateFormattedSequence(mText);
+            globalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    mText = generateFormattedSequence(inpText);
+                    getViewTreeObserver().removeOnGlobalLayoutListener(globalLayoutListener);
+                }
+            };
+            getViewTreeObserver().addOnGlobalLayoutListener(globalLayoutListener);
         }
-        return mText;
+        mText = inpText;
     }
 
     public String generateFormattedSequence(String mText){
@@ -90,6 +99,10 @@ public class TypeWriterView extends AppCompatTextView {
                 finalSequence.append(" ").append(word);
         }
         return finalSequence.toString();
+    }
+
+    private void pingAnimationEnded(){
+        if (mAnimationChangeListener != null) mAnimationChangeListener.onAnimationEnd();
     }
 
     //Explicitly turnoff "avoidTextOverflowAtEdge" to avoid weird text formatting in few cases (when view size is dynamic).
