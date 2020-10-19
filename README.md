@@ -1,7 +1,7 @@
 # TypeWriter
 Android Library to Get Smooth and Polished Typewriter Effect for TextView
 
-![demo](https://github.com/NitishGadangi/TypeWriter-TextView/blob/master/demo.gif?raw=true)
+<img height='450' style='border:0px;height:450px;' src='https://github.com/NitishGadangi/TypeWriter-TextView/blob/master/demo.gif?raw=true' border='0' alt='Demo' />
 
 
 ## Gradle Dependency
@@ -78,6 +78,6 @@ typeWriterView.avoidTextOverflowAtEdge(boolean avoidTextOverflowAtEdge);
 ## Contributing
 Pull requests are welcome, if you have any questions feel free to ping me.
 ### Like my work?
-[![Buy me a coffee](https://camo.githubusercontent.com/d85bdd7af09d35c56f2e2ecba7a7342d3cd3c137/68747470733a2f2f626d632d63646e2e6e7963332e6469676974616c6f6365616e7370616365732e636f6d2f424d432d627574746f6e2d696d616765732f637573746f6d5f696d616765732f6f72616e67655f696d672e706e67)](https://nitishgadangi.github.io/?buy_me_coffee)
+[![Buy me a coffee](https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png)](https://nitishgadangi.github.io/?buy_me_coffee)
 
 **Made with  ❤️  by Nitish**
