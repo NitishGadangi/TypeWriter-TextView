@@ -1,4 +1,4 @@
-![Header](https://github.com/NitishGadangi/TypeWriter-TextView/blob/master/header.jpg?raw=true)
+![Header](https://github.com/NitishGadangi/TypeWriter-TextView/blob/master/header1.jpg?raw=true)
 
 ## Demo
 
